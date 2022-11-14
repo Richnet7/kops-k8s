@@ -116,7 +116,15 @@ You Created. --> Save.
     sh -i ~/.ssh/id_rsa ubuntu@ipAddress
     ssh -i ~/.ssh/id_rsa ubuntu@18.222.139.125
     ssh -i ~/.ssh/id_rsa ubuntu@172.20.58.124
-# 11) To list nodes
+
+## 11b.  Enable PasswordAuthentication in the master server and assign passwd
+```sh
+sudo sed -i "/^[^#]*PasswordAuthentication[[:space:]]no/c\PasswordAuthentication yes" /etc/ssh/sshd_config
+sudo service sshd restart
+sudo passwd ubuntu
+```
+
+# 11c) To list nodes
 
 	  kubectl get nodes 
  
